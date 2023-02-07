@@ -5,4 +5,7 @@ import com.jafa.domain.MemberVO;
 public interface MemberRepository {
 
 	void save(MemberVO vo);
+
+	MemberVO read(String memberId);
+
 }

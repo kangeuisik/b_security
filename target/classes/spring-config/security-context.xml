@@ -21,6 +21,8 @@
 	<bean id="logoutSuccessHandlerImpl" class="com.jafa.security.LogoutSuccessHandlerImpl"></bean>
 	<!-- 비밀번호 암호화 빈 -->
 	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
+	<!-- UserDetailsService 빈등록 -->
+	<bean id="userDetailsService" class="com.jafa.service.CustomUserDetailService"></bean>
 	
 	<security:http>
 		<!-- 로그인 페이지 -->
@@ -47,11 +49,8 @@
 	
 	<security:authentication-manager>
 	 <!-- 인증과 권한에 대한 처리 -->
-	 	<security:authentication-provider>
-	 		<security:user-service><!-- 사용자 등록 -->
-	 			<security:user name="kang" password="{noop}1234" authorities="ROLE_MEMBER"/>
-	 			<security:user name="admin" password="{noop}1234" authorities="ROLE_ADMIN,ROLE_MEMBER"/>
-	 		</security:user-service>
+	 	<security:authentication-provider user-service-ref="userDetailsService">
+			<security:password-encoder ref="passwordEncoder"/>
 	 	</security:authentication-provider>
 	</security:authentication-manager>
 	

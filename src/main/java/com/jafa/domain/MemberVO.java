@@ -1,5 +1,7 @@
 package com.jafa.domain;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,4 +23,5 @@ public class MemberVO {
 	private String email;
 	private boolean enabled;
 	
+	private List<AuthVO> authList; //권한정보
 }

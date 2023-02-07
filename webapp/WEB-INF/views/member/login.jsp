@@ -7,6 +7,7 @@
 		<h1>로그인</h1>		
 	</div>
 	<form action="${contextPath }/member/login" method="post">
+	
 		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 		<div class="form-group">
 			아이디 : <input type="text" class="form-control" name="loginId" value="${loginId }">
@@ -14,6 +15,7 @@
 		<div class="form-group">
 			비밀번호 : <input type="text" class="form-control" name="loginPwd">
 		</div>
+		
 		<c:if test="${not empty errorMessage }">
 			<div class="alert alert-danger">
 				<strong>${errorMessage }</strong>
