@@ -27,4 +27,8 @@
 	<select id="getAuthList" resultType="com.jafa.domain.AuthVO">
 		select * from member_auth where memberId=#{memberId} order by ordinal
 	</select>
+	
+	<select id="memberList" resultMap="memberMap">
+		SELECT * FROM member_sec01 
+	</select>
 </mapper>

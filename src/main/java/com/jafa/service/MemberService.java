@@ -1,5 +1,7 @@
 package com.jafa.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -47,6 +49,9 @@ public class MemberService {
 			authRepository.save(vo);
 		}
 		
+	}
+	public List<MemberVO> memberList() {
+		return memberRepository.memberList();
 	}
  
 }
