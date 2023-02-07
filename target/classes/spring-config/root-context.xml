@@ -32,7 +32,7 @@
 		<constructor-arg ref="sqlSessionFactory"/>
 	</bean>
 	
-	<mybatis-spring:scan base-package="com.jafa.dao"/>
+	<mybatis-spring:scan base-package="com.jafa.repository"/>
 	
 	<!-- 트랜잭션 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
