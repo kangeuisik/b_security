@@ -8,6 +8,7 @@
 	<div>
 		<sec:authorize access="isAnonymous()"><!-- 권한이 없는경우 -->
 		<a href="${contextPath }/member/login" class="btn btn-info">로그인</a><br>
+		<a href="${contextPath }/member/join" class="btn btn-info">회원가입</a><br>
 		</sec:authorize>
 		
 		<a href="${contextPath }/member/all" class="btn btn-info">모든사용자</a><br>
