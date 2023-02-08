@@ -17,21 +17,23 @@
 				<th>상태</th>
 			</tr>
 			<c:forEach items="${list }" var="m" varStatus="mst">
-				<tr>
-					<td>${m.mno }</td>
-					<td>${m.memberId }
-						<input type="hidden" name="authList[${mst.index}].memberId" value="${m.memberId }">
-					</td>
-					<td>${m.email }</td>
-					<td>
-						<select name="authList[${mst.index}].memberType"><!-- name값이 다 달라야하기 때문에 인덱스번호 지정 -->
-							<c:forEach items="${mType }" var="type">
-								<option value="${type }"${m.authList[0].memberType==type ? 'selected':'' }>${type.name }</option>
-							</c:forEach>
-						</select>
-					</td>
-					<td>${m.enabled }</td>
-				</tr>
+				<c:if test="${m.authList[0].memberType!=mType[0] }">
+					<tr>
+						<td>${m.mno }</td>
+						<td>${m.memberId }
+							<input type="hidden" name="authList[${mst.index}].memberId" value="${m.memberId }">
+						</td>
+						<td>${m.email }</td>
+						<td>
+							<select name="authList[${mst.index}].memberType"><!-- name값이 다 달라야하기 때문에 인덱스번호 지정 -->
+								<c:forEach items="${mType }" var="type">
+									<option value="${type }"${m.authList[0].memberType==type ? 'selected':'' }>${type.name }</option>
+								</c:forEach>
+							</select>
+						</td>
+						<td>${m.enabled }</td>
+					</tr>
+				</c:if>
 			</c:forEach>
 		</table>
 		<button class="btn btn-info">변경하기</button>

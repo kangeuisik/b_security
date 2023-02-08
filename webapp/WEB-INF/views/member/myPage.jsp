@@ -4,8 +4,9 @@
 
 <div class="container">
 	<div class="jumbotron">
-		<h1>로그인한 사용자</h1>		
+		<h1>마이페이지</h1>		
 	</div>
+	${memberInfo }
 	
 </div>
 

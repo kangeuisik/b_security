@@ -12,8 +12,12 @@
 		</sec:authorize>
 		
 		<a href="${contextPath }/member/all" class="btn btn-info">모든사용자</a><br>
+		
+		<a href="${contextPath }/member/myPage" class="btn btn-info">회원</a><br>
+		
+		<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUB_ADMIN')">
 		<a href="${contextPath }/member/admin" class="btn btn-info">관리자</a><br>
-		<a href="${contextPath }/member/member" class="btn btn-info">회원</a><br>
+		</sec:authorize>
 		
 		<sec:authorize access="isAuthenticated()"> <!-- 권한이 있는경우(로그인사용자) -->		
 			<form action="${contextPath }/member/logout" method="post">
